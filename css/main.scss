@@ -119,17 +119,33 @@ $blue : #4062bb;
 
     /*-----Navigation-----*/
     nav {
-        max-width: 800px;
-        margin: 0 auto;
+        max-width: 240px;
+        margin: 0 auto 0 0;
         background: linear-gradient(to right, $orange, $dkOrange);
         border: 10px solid white;
-        border-radius: 0 0 20px 20px;
+        border-radius: 0 0 20px 0;
         border-top: none;
+        border-left: none;
         box-shadow: (0 0 60px 1px rgba(0,0,0,0.4));
-        ul {
+        .navbar-toggler-icon {
+            background-color: white;
+            border-radius: 50%;
+            color: $blue;
+            width: 75px;
+            height: 75px;
             position: absolute;
-            top: 14px;
-            right: 30px;
+            right: 10px;
+            top: 20px;
+            box-shadow: (0 0 25px 1px rgba(0,0,0,0.3));
+            transition-duration: .25s;
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+        ul {
+            position: static;
+            top: 100px;
+            margin-left: 20px;
             img {
                 width: 100px;
                 border-radius: 50%;
@@ -141,6 +157,19 @@ $blue : #4062bb;
                     transform: scale(1.1);
                     box-shadow: (0 5px 25px 1px rgba(0,0,0,0.3));
                 }
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        nav {
+            max-width: 800px;
+            margin: 0 auto;
+            border-left: 10px solid white;
+            border-radius: 0 0 20px 20px;
+            ul {
+                position: absolute;
+                top: 14px;
+                right: 30px;
             }
         }
     }
