@@ -90,15 +90,53 @@ textarea {
 /*-----Basic Styles-----*/
 h1 {
   font-family: 'Carter One', cursive;
+  font-size: 3rem;
+  color: #4062bb;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
 }
 
 h2, h3, h4, h5, h6 {
   font-family: 'Bitter', serif;
+  color: #00a589;
 }
 
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #ecebe4;
+  color: #153b50;
+}
+
+.cta-btn {
+  padding: 10px 30px;
+  background-color: transparent;
+  border: 5px solid #ff8d1b;
+  color: #ff8d1b;
+  border-radius: 40px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1.2rem;
+  text-align: center;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+}
+
+.cta-btn:hover {
+  background-color: #ff8d1b;
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.wrapper {
+  max-width: 720px;
 }
 
 /*-----Navigation-----*/
@@ -169,6 +207,117 @@ nav ul a:hover img {
     top: 14px;
     right: 30px;
   }
+}
+
+/*-----Intro Section-----*/
+#intro-section {
+  min-height: 50vh;
+  padding-top: 100px;
+  padding-bottom: 50px;
+  background: url("../img/inspiration-geometry.png"), -webkit-gradient(linear, left top, right top, color-stop(50%, #ecebe4), to(rgba(22, 244, 208, 0.2)));
+  background: url("../img/inspiration-geometry.png"), linear-gradient(to right, #ecebe4 50%, rgba(22, 244, 208, 0.2));
+  font-size: 1.2rem;
+}
+
+#intro-section i {
+  color: #443742;
+  margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+  #intro-section {
+    padding-top: 150px;
+  }
+}
+
+/*-----Index Carousel-----*/
+#carousel-section {
+  height: 70vh;
+  background-color: #153b50;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#carousel-section figure {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+#carousel-section figure:first-child {
+  background-image: url("../img/boys.jpg");
+}
+
+#carousel-section figure:nth-child(2) {
+  background-image: url("../img/baby.jpg");
+}
+
+#carousel-section figure:last-child {
+  background-image: url("../img/kids.jpg");
+}
+
+#carousel-section ol li {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+@media (min-width: 768px) {
+  #carousel-section {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+}
+
+/*-----Footer-----*/
+footer {
+  padding: 50px 0;
+  background-color: #153b50;
+  color: #ecebe4;
+  position: relative;
+  z-index: 500;
+  font-size: 0.9rem;
+}
+
+footer h6 {
+  color: #16f4d0;
+  font-size: 1.2rem;
+}
+
+footer a {
+  color: #ffb86f;
+}
+
+footer a:hover {
+  color: #ff8d1b;
+}
+
+footer i {
+  margin-right: 5px;
+  color: #ecebe4;
+}
+
+#bottom-section {
+  background-color: #1b1a1d;
+  color: #ecebe4;
+  padding: 20px 0;
+  text-align: center;
+}
+
+#bottom-section a {
+  color: #ffb86f;
+}
+
+#bottom-section a:hover {
+  color: #ff8d1b;
 }
 
 /* ==========================================================================
