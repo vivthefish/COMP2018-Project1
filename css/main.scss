@@ -145,10 +145,18 @@ textarea {
     text-decoration: none;
     }
     .wrapper {
-        max-width: 720px;
+        //max-width: 720px;
     }
 
     /*-----Navigation-----*/
+    .header-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: auto;
+        padding: 0;
+        z-index: 25;
+    }
     nav {
         max-width: 240px;
         margin: 0 auto 0 0;
@@ -192,9 +200,17 @@ textarea {
         }
     }
     @media (min-width: 768px) {
+        .header-wrapper {
+            right: 0;
+            padding: 0 10px;
+        }
         nav {
-            max-width: 800px;
-            margin: 0 auto;
+            min-width: 768px;
+            max-width: 100%;
+            width: 100%;
+            margin: 0;
+            justify-content: center;
+            // margin: 0 auto;
             border-left: 10px solid white;
             border-radius: 0 0 20px 20px;
             ul {
