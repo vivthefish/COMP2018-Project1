@@ -20,4 +20,20 @@ $( document ).ready(function() {
     });
 
 
+    // Click handler for nav links
+    $('.nav-link').click(function(e) {
+        $(this).toggleClass('active');
+    })
+
+    $(function(){
+        $("a").click(function(e){
+            e.preventDefault();
+            var link = $(this).attr("href");
+            setTimeout(function() {
+                window.location.href = link;
+            }, 500);
+        });
+    });
+
+
 });
