@@ -259,7 +259,7 @@ textarea {
                 margin: 0 auto;
                 width: 100%;
                 max-width: 300px;
-                filter: drop-shadow(0 0 60px 1px rgba(0,0,0,0.4));
+                //filter: drop-shadow(0 0 60px 1px rgba(0,0,0,0.4));
             }
             @media (min-width: 768px) {
                 margin-top: 0;
@@ -333,6 +333,7 @@ textarea {
         position: relative;
         z-index: 5;
         font-size: 0.9rem;
+        margin-top: 10px;
         h6 {
             color: $teal;
             font-size: 1.2rem;
@@ -365,6 +366,11 @@ textarea {
     .car-info {
         margin-top: 81px;
         min-height: 200px;
+        height: auto !important;
+        padding: 20px 0;
+        p {
+            margin-bottom: 3px;
+        }
     }
 
 
