@@ -142,36 +142,6 @@ a:hover {
           animation: wiggle 10s linear infinite;
 }
 
-@-webkit-keyframes wiggle {
-  0%, 49%, 53%, 100% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  50%, 52% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
-  }
-  51% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
-  }
-}
-
-@keyframes wiggle {
-  0%, 49%, 53%, 100% {
-    -webkit-transform: rotate(0);
-            transform: rotate(0);
-  }
-  50%, 52% {
-    -webkit-transform: rotate(15deg);
-            transform: rotate(15deg);
-  }
-  51% {
-    -webkit-transform: rotate(-15deg);
-            transform: rotate(-15deg);
-  }
-}
-
 /*-----Navigation-----*/
 .header-wrapper {
   position: fixed;
@@ -283,8 +253,8 @@ nav ul a.active img {
             animation: nav-entrance .5s ease-in-out;
   }
   #homepage .nav-link {
-    -webkit-clip-path: circle(0%);
-            clip-path: circle(0%);
+    -webkit-clip-path: circle(0);
+            clip-path: circle(0);
   }
   #homepage .nav-item:first-child .nav-link {
     -webkit-animation: wipe-center .75s .5s ease-in-out forwards;
@@ -313,8 +283,8 @@ nav ul a.active img {
             animation: car-entrance .75s 1s ease-in forwards;
   }
   #homepage #intro-section aside img {
-    -webkit-clip-path: circle(0%);
-            clip-path: circle(0%);
+    -webkit-clip-path: circle(0);
+            clip-path: circle(0);
     -webkit-animation: wipe-center .75s 1.6s ease-in-out forwards;
             animation: wipe-center .75s 1.6s ease-in-out forwards;
   }
@@ -323,68 +293,6 @@ nav ul a.active img {
     top: 100vh;
     -webkit-animation: fly-up .75s 1.8s ease-out forwards;
             animation: fly-up .75s 1.8s ease-out forwards;
-  }
-}
-
-@-webkit-keyframes wipe-center {
-  from {
-    -webkit-clip-path: circle(0%);
-            clip-path: circle(0%);
-  }
-  to {
-    -webkit-clip-path: circle(100%);
-            clip-path: circle(100%);
-  }
-}
-
-@keyframes wipe-center {
-  from {
-    -webkit-clip-path: circle(0%);
-            clip-path: circle(0%);
-  }
-  to {
-    -webkit-clip-path: circle(100%);
-            clip-path: circle(100%);
-  }
-}
-
-@-webkit-keyframes nav-entrance {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 0;
-  }
-}
-
-@keyframes nav-entrance {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 0;
-  }
-}
-
-@-webkit-keyframes fly-up {
-  from {
-    top: 100vh;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-@keyframes fly-up {
-  from {
-    top: 100vh;
-    opacity: 0;
-  }
-  to {
-    top: 0;
-    opacity: 1;
   }
 }
 
@@ -610,6 +518,7 @@ footer i {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   width: 270px;
+  opacity: .25;
   -webkit-animation: rotate-wheel 60s infinite linear;
           animation: rotate-wheel 60s infinite linear;
 }
@@ -624,44 +533,43 @@ footer i {
           animation: car-entrance 0.75s cubic-bezier(0.66, 0.23, 0.85, 1.28);
 }
 
-@-webkit-keyframes car-entrance {
-  0% {
-    left: -70vw;
-  }
-  100% {
-    left: 0;
-  }
+.car-img span::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 0;
+  width: 0;
+  -webkit-transition-duration: .5s;
+          transition-duration: .5s;
+  -webkit-filter: blur(20px);
+          filter: blur(20px);
 }
 
-@keyframes car-entrance {
-  0% {
-    left: -70vw;
-  }
-  100% {
-    left: 0;
-  }
+.car-img span:hover::after {
+  width: 450px;
+  height: 450px;
 }
 
-@-webkit-keyframes rotate-wheel {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0);
-            transform: translate(-50%, -50%) rotate(0);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
-  }
+.car-img span:hover::before {
+  height: 550px;
+  width: 550px;
 }
 
-@keyframes rotate-wheel {
-  from {
-    -webkit-transform: translate(-50%, -50%) rotate(0);
-            transform: translate(-50%, -50%) rotate(0);
-  }
-  to {
-    -webkit-transform: translate(-50%, -50%) rotate(360deg);
-            transform: translate(-50%, -50%) rotate(360deg);
-  }
+.car-img img {
+  position: relative;
+  z-index: 3;
+}
+
+.car-img span:hover img {
+  cursor: pointer;
+  -webkit-animation: wiggle-hover .4s;
+          animation: wiggle-hover .4s;
 }
 
 /* ==========================================================================

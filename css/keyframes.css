@@ -1,0 +1,34 @@
+@keyframes wiggle {
+    0%, 49%, 53%, 100% { transform: rotate(0); }
+    50%, 52% { transform: rotate(15deg); }
+    51% { transform: rotate(-15deg); }
+}
+@keyframes wiggle-hover {
+    0%, 100% { transform: rotate(0); }
+    25%, 75% { transform: rotate(10deg); }
+    50% { transform: rotate(-10deg); }
+}
+@keyframes wipe-center {
+    from { clip-path: circle(0) }
+    to { clip-path: circle(100%) }
+}
+@keyframes nav-entrance {
+    from{ top: -100px; }
+    to { top: 0; }
+}
+@keyframes fly-up {
+    from{ top: 100vh; opacity: 0; }
+    to { top: 0; opacity: 1; }
+}
+@keyframes car-entrance {
+    0% {
+        left: -70vw;
+    }
+    100% {
+        left: 0;
+    }
+}
+@keyframes rotate-wheel {
+    from { transform: translate(-50%, -50%) rotate(0); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}

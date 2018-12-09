@@ -3,10 +3,9 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 308.3 308.3" style="enable-background:new 0 0 308.3 308.3;" xml:space="preserve">
 <style type="text/css">
-	.st0{opacity:0.25;fill:none;stroke:#4062BB;stroke-width:10;stroke-miterlimit:10;}
-	.st1{opacity:0.25;fill:#4062BB;}
-	.st2{opacity:0.25;}
-	.st3{fill:none;stroke:#4062BB;stroke-width:11;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.0142,50.7078;}
+	.st0{fill:none;stroke:#4062BB;stroke-width:10;stroke-miterlimit:10;}
+	.st1{fill:#4062BB;}
+	.st2{fill:none;stroke:#4062BB;stroke-width:11;stroke-linecap:round;stroke-miterlimit:10;stroke-dasharray:1.0142,50.7078;}
 </style>
 <circle class="st0" cx="154.2" cy="154.2" r="125"/>
 <path class="st1" d="M262.2,150.7h-99.6L233,80.3c1.4-1.4,1.4-3.6,0-5c-1.4-1.4-3.6-1.4-5,0l-70.4,70.4V46.2c0-1.9-1.6-3.5-3.5-3.5
@@ -14,7 +13,7 @@
 	s1.6,3.5,3.5,3.5h99.5l-70.4,70.4c-1.4,1.4-1.4,3.6,0,5c0.7,0.7,1.6,1,2.5,1s1.8-0.3,2.5-1l70.4-70.4v99.5c0,1.9,1.6,3.5,3.5,3.5
 	s3.5-1.6,3.5-3.5v-99.5l70.4,70.4c0.7,0.7,1.6,1,2.5,1s1.8-0.3,2.5-1c1.4-1.4,1.4-3.6,0-5l-70.4-70.4h99.5c1.9,0,3.5-1.6,3.5-3.5
 	S264.1,150.7,262.2,150.7z"/>
-<g class="st2">
-	<circle class="st3" cx="154.2" cy="154.2" r="148.2"/>
+<g>
+	<circle class="st2" cx="154.2" cy="154.2" r="148.2"/>
 </g>
 </svg>

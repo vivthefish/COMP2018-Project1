@@ -148,11 +148,6 @@ textarea {
     .wiggle {
         animation: wiggle 10s linear infinite;
     }
-    @keyframes wiggle {
-        0%, 49%, 53%, 100% { transform: rotate(0); }
-        50%, 52% { transform: rotate(15deg); }
-        51% { transform: rotate(-15deg); }
-    }
 
     /*-----Navigation-----*/
     .header-wrapper {
@@ -247,7 +242,7 @@ textarea {
                 animation: nav-entrance .5s ease-in-out;
             }
             .nav-link {
-                clip-path: circle(0%)
+                clip-path: circle(0);
             }
             .nav-item:first-child .nav-link {
                 animation: wipe-center .75s .5s ease-in-out forwards;
@@ -270,7 +265,7 @@ textarea {
                 animation: car-entrance .75s 1s ease-in forwards;
             }
             #intro-section aside img {
-                clip-path: circle(0%);
+                clip-path: circle(0);
                 animation: wipe-center .75s 1.6s ease-in-out forwards;
             }
             #carousel-section {
@@ -279,18 +274,6 @@ textarea {
                 animation: fly-up .75s 1.8s ease-out forwards;
             }
         }
-    }
-    @keyframes wipe-center {
-        from { clip-path: circle(0%) }
-        to { clip-path: circle(100%) }
-    }
-    @keyframes nav-entrance {
-        from{ top: -100px; }
-        to { top: 0; }
-    }
-    @keyframes fly-up {
-        from{ top: 100vh; opacity: 0; }
-        to { top: 0; opacity: 1; }
     }
 
     /*-----Intro Section-----*/
@@ -465,6 +448,7 @@ textarea {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 width: 270px;
+                opacity: .25;
                 animation: rotate-wheel 60s infinite linear;
             }
         }
@@ -475,18 +459,53 @@ textarea {
     .car-img {
         position: relative;
         animation: car-entrance .75s cubic-bezier(.66,.23,.85,1.28);
-    }
-    @keyframes car-entrance {
-        0% {
-            left: -70vw;
+        span {
+            // &::after {
+            //     content: '';
+            //     display: block;
+            //     position: absolute;
+            //     top: 40%;
+            //     left: 45%;
+            //     transform: translate(-50%, -50%);
+            //     border-radius: 50%;
+            //     opacity: .25;
+            //     background: url('../img/wheel.svg');
+            //     width: 0;
+            //     height: 0;
+            //     transition-duration: .5s;
+            //     animation: rotate-wheel 60s linear infinite;
+            // }
+            &::before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 40%;
+                left: 45%;
+                transform: translate(-50%, -50%);
+                border-radius: 50%;
+                background-color: rgba(255,255,255,0.5);
+                height: 0;
+                width: 0;
+                transition-duration: .5s;
+                filter: blur(20px);
+            }
+            &:hover::after {
+                width: 450px;
+                height: 450px;
+            }
+            &:hover::before {
+                height: 550px;
+                width: 550px;
+            }
         }
-        100% {
-            left: 0;
+        img {
+            position: relative;
+            z-index: 3;
         }
-    }
-    @keyframes rotate-wheel {
-        from { transform: translate(-50%, -50%) rotate(0); }
-        to { transform: translate(-50%, -50%) rotate(360deg); }
+        span:hover img {
+            cursor: pointer;
+            animation: wiggle-hover .4s;
+        }
     }
 
 
