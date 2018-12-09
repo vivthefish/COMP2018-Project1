@@ -109,11 +109,13 @@ body {
   font-family: 'Roboto', sans-serif;
   background-color: #ecebe4;
   color: #153b50;
+  background: url("../img/inspiration-geometry.png"), -webkit-gradient(linear, left top, right top, color-stop(50%, #ecebe4), to(rgba(22, 244, 208, 0.2)));
+  background: url("../img/inspiration-geometry.png"), linear-gradient(to right, #ecebe4 50%, rgba(22, 244, 208, 0.2));
 }
 
 .cta-btn {
   padding: 10px 30px;
-  background-color: transparent;
+  background-color: rgba(255, 255, 255, 0.5);
   border: 5px solid #ff8d1b;
   color: #ff8d1b;
   border-radius: 40px;
@@ -133,6 +135,41 @@ body {
 
 a:hover {
   text-decoration: none;
+}
+
+.wiggle {
+  -webkit-animation: wiggle 10s linear infinite;
+          animation: wiggle 10s linear infinite;
+}
+
+@-webkit-keyframes wiggle {
+  0%, 49%, 53%, 100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50%, 52% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  51% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 49%, 53%, 100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  50%, 52% {
+    -webkit-transform: rotate(15deg);
+            transform: rotate(15deg);
+  }
+  51% {
+    -webkit-transform: rotate(-15deg);
+            transform: rotate(-15deg);
+  }
 }
 
 /*-----Navigation-----*/
@@ -219,6 +256,7 @@ nav ul a.active img {
   left: -100px;
 }
 
+/* Media Queries and Animations */
 @media (min-width: 768px) {
   .header-wrapper {
     right: 0;
@@ -240,6 +278,114 @@ nav ul a.active img {
     top: 14px;
     right: 30px;
   }
+  #homepage nav {
+    -webkit-animation: nav-entrance .5s ease-in-out;
+            animation: nav-entrance .5s ease-in-out;
+  }
+  #homepage .nav-link {
+    -webkit-clip-path: circle(0%);
+            clip-path: circle(0%);
+  }
+  #homepage .nav-item:first-child .nav-link {
+    -webkit-animation: wipe-center .75s .5s ease-in-out forwards;
+            animation: wipe-center .75s .5s ease-in-out forwards;
+  }
+  #homepage .nav-item:nth-child(2) .nav-link {
+    -webkit-animation: wipe-center .75s .6s ease-in-out forwards;
+            animation: wipe-center .75s .6s ease-in-out forwards;
+  }
+  #homepage .nav-item:nth-child(3) .nav-link {
+    -webkit-animation: wipe-center .75s .7s ease-in-out forwards;
+            animation: wipe-center .75s .7s ease-in-out forwards;
+  }
+  #homepage .nav-item:nth-child(4) .nav-link {
+    -webkit-animation: wipe-center .75s .8s ease-in-out forwards;
+            animation: wipe-center .75s .8s ease-in-out forwards;
+  }
+  #homepage .nav-item:last-child .nav-link {
+    -webkit-animation: wipe-center .75s .9s ease-in-out forwards;
+            animation: wipe-center .75s .9s ease-in-out forwards;
+  }
+  #homepage #intro-section article {
+    position: relative;
+    left: -70vw;
+    -webkit-animation: car-entrance .75s 1s ease-in forwards;
+            animation: car-entrance .75s 1s ease-in forwards;
+  }
+  #homepage #intro-section aside img {
+    -webkit-clip-path: circle(0%);
+            clip-path: circle(0%);
+    -webkit-animation: wipe-center .75s 1.6s ease-in-out forwards;
+            animation: wipe-center .75s 1.6s ease-in-out forwards;
+  }
+  #homepage #carousel-section {
+    position: relative;
+    top: 100vh;
+    -webkit-animation: fly-up .75s 1.8s ease-out forwards;
+            animation: fly-up .75s 1.8s ease-out forwards;
+  }
+}
+
+@-webkit-keyframes wipe-center {
+  from {
+    -webkit-clip-path: circle(0%);
+            clip-path: circle(0%);
+  }
+  to {
+    -webkit-clip-path: circle(100%);
+            clip-path: circle(100%);
+  }
+}
+
+@keyframes wipe-center {
+  from {
+    -webkit-clip-path: circle(0%);
+            clip-path: circle(0%);
+  }
+  to {
+    -webkit-clip-path: circle(100%);
+            clip-path: circle(100%);
+  }
+}
+
+@-webkit-keyframes nav-entrance {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@keyframes nav-entrance {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+@-webkit-keyframes fly-up {
+  from {
+    top: 100vh;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes fly-up {
+  from {
+    top: 100vh;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 /*-----Intro Section-----*/
@@ -247,8 +393,6 @@ nav ul a.active img {
   min-height: 50vh;
   padding-top: 100px;
   padding-bottom: 50px;
-  background: url("../img/inspiration-geometry.png"), -webkit-gradient(linear, left top, right top, color-stop(50%, #ecebe4), to(rgba(22, 244, 208, 0.2)));
-  background: url("../img/inspiration-geometry.png"), linear-gradient(to right, #ecebe4 50%, rgba(22, 244, 208, 0.2));
   font-size: 1.2rem;
 }
 
@@ -287,7 +431,7 @@ nav ul a.active img {
 
 /*-----Index Carousel-----*/
 #carousel-section {
-  height: 70vh;
+  height: 100vh;
   background-color: #153b50;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -370,7 +514,6 @@ footer {
   position: relative;
   z-index: 5;
   font-size: 0.9rem;
-  margin-top: 10px;
 }
 
 footer h6 {
@@ -408,14 +551,117 @@ footer i {
 
 /*-----Car Pages-----*/
 .car-info {
-  margin-top: 81px;
+  padding: 81px 0;
   min-height: 200px;
   height: auto !important;
-  padding: 20px 0;
 }
 
 .car-info p {
   margin-bottom: 3px;
+}
+
+.car-info .price {
+  color: #4062bb;
+  font-family: 'Carter One', cursive;
+  font-size: 2.5rem;
+}
+
+.car-info .price .cents {
+  font-size: 1.5rem;
+}
+
+.car-info section .specs {
+  font-size: 1.2rem;
+  border-radius: 15px;
+  border: none;
+  -webkit-box-shadow: 0 3px 35px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 3px 35px 2px rgba(0, 0, 0, 0.25);
+}
+
+.car-info section .specs .cta-btn {
+  width: 168px;
+  display: block;
+  margin: 0 auto;
+}
+
+.car-info .card-header {
+  padding: 20px 10px;
+  background: -webkit-gradient(linear, left top, right top, from(#16f4d0), to(#00a589));
+  background: linear-gradient(to right, #16f4d0, #00a589);
+  border-radius: 15px 15px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.car-info .card-header h2 {
+  margin: 0;
+  text-align: center;
+  color: white;
+  position: relative;
+  z-index: 2;
+  font-weight: 800;
+  font-size: 2.5rem;
+}
+
+.car-info .card-header img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 270px;
+  -webkit-animation: rotate-wheel 60s infinite linear;
+          animation: rotate-wheel 60s infinite linear;
+}
+
+.car-info .card-body {
+  padding: 30px;
+}
+
+.car-img {
+  position: relative;
+  -webkit-animation: car-entrance 0.75s cubic-bezier(0.66, 0.23, 0.85, 1.28);
+          animation: car-entrance 0.75s cubic-bezier(0.66, 0.23, 0.85, 1.28);
+}
+
+@-webkit-keyframes car-entrance {
+  0% {
+    left: -70vw;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@keyframes car-entrance {
+  0% {
+    left: -70vw;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@-webkit-keyframes rotate-wheel {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate-wheel {
+  from {
+    -webkit-transform: translate(-50%, -50%) rotate(0);
+            transform: translate(-50%, -50%) rotate(0);
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%) rotate(360deg);
+            transform: translate(-50%, -50%) rotate(360deg);
+  }
 }
 
 /* ==========================================================================

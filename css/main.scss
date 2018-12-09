@@ -123,10 +123,11 @@ textarea {
        font-family: 'Roboto', sans-serif;
        background-color: $offWhite;
        color: $dkBlue;
+       background: url('../img/inspiration-geometry.png'), linear-gradient(to right, $offWhite 50%, rgba(22, 244, 208, 0.2));
    }
    .cta-btn {
        padding: 10px 30px;
-       background-color: transparent;
+       background-color: rgba(255,255,255,0.5);
        border: 5px solid $dkOrange;
        color: $dkOrange;
        border-radius: 40px;
@@ -144,8 +145,13 @@ textarea {
    a:hover {
     text-decoration: none;
     }
-    .wrapper {
-        //max-width: 720px;
+    .wiggle {
+        animation: wiggle 10s linear infinite;
+    }
+    @keyframes wiggle {
+        0%, 49%, 53%, 100% { transform: rotate(0); }
+        50%, 52% { transform: rotate(15deg); }
+        51% { transform: rotate(-15deg); }
     }
 
     /*-----Navigation-----*/
@@ -215,6 +221,7 @@ textarea {
             }
         }
     }
+    /* Media Queries and Animations */
     @media (min-width: 768px) {
         .header-wrapper {
             right: 0;
@@ -235,6 +242,55 @@ textarea {
                 right: 30px;
             }
         }
+        #homepage {
+            nav {
+                animation: nav-entrance .5s ease-in-out;
+            }
+            .nav-link {
+                clip-path: circle(0%)
+            }
+            .nav-item:first-child .nav-link {
+                animation: wipe-center .75s .5s ease-in-out forwards;
+            }
+            .nav-item:nth-child(2) .nav-link {
+                animation: wipe-center .75s .6s ease-in-out forwards;
+            }
+            .nav-item:nth-child(3) .nav-link {
+                animation: wipe-center .75s .7s ease-in-out forwards;
+            }
+            .nav-item:nth-child(4) .nav-link {
+                animation: wipe-center .75s .8s ease-in-out forwards;
+            }
+            .nav-item:last-child .nav-link {
+                animation: wipe-center .75s .9s ease-in-out forwards;
+            }
+            #intro-section article {
+                position: relative;
+                left: -70vw;
+                animation: car-entrance .75s 1s ease-in forwards;
+            }
+            #intro-section aside img {
+                clip-path: circle(0%);
+                animation: wipe-center .75s 1.6s ease-in-out forwards;
+            }
+            #carousel-section {
+                position: relative;
+                top: 100vh;
+                animation: fly-up .75s 1.8s ease-out forwards;
+            }
+        }
+    }
+    @keyframes wipe-center {
+        from { clip-path: circle(0%) }
+        to { clip-path: circle(100%) }
+    }
+    @keyframes nav-entrance {
+        from{ top: -100px; }
+        to { top: 0; }
+    }
+    @keyframes fly-up {
+        from{ top: 100vh; opacity: 0; }
+        to { top: 0; opacity: 1; }
     }
 
     /*-----Intro Section-----*/
@@ -242,7 +298,6 @@ textarea {
         min-height: 50vh;
         padding-top: 100px;
         padding-bottom: 50px;
-        background: url('../img/inspiration-geometry.png'), linear-gradient(to right, $offWhite 50%, rgba(22, 244, 208, 0.2));
         font-size: 1.2rem;
         i {
             color: $dkBurgundy;
@@ -272,7 +327,7 @@ textarea {
 
     /*-----Index Carousel-----*/
     #carousel-section {
-        height: 70vh;
+        height: 100vh;
         background-color: $dkBlue;
         display: flex;
         align-items: center;
@@ -333,7 +388,7 @@ textarea {
         position: relative;
         z-index: 5;
         font-size: 0.9rem;
-        margin-top: 10px;
+        // margin-top: 10px;
         h6 {
             color: $teal;
             font-size: 1.2rem;
@@ -364,13 +419,74 @@ textarea {
 
     /*-----Car Pages-----*/
     .car-info {
-        margin-top: 81px;
+        padding: 81px 0;
         min-height: 200px;
         height: auto !important;
-        padding: 20px 0;
         p {
             margin-bottom: 3px;
         }
+        .price {
+            color: $blue;
+            font-family: 'Carter One', cursive;
+            font-size: 2.5rem;
+            .cents {
+                font-size: 1.5rem;
+            }
+        }
+        section .specs {
+            font-size: 1.2rem;
+            border-radius: 15px;
+            border: none;
+            box-shadow: (0 3px 35px 2px rgba(0,0,0,0.25));
+            .cta-btn {
+                width: 168px;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        .card-header {
+            padding: 20px 10px;
+            background: linear-gradient(to right, $teal, $dkTeal);
+            border-radius: 15px 15px 0 0;
+            position: relative;
+            overflow: hidden;
+            h2 {
+                margin: 0;
+                text-align:center;
+                color: white;
+                position: relative;
+                z-index: 2;
+                font-weight: 800;
+                font-size: 2.5rem;
+            }
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 270px;
+                animation: rotate-wheel 60s infinite linear;
+            }
+        }
+        .card-body {
+            padding: 30px;
+        }
+    }
+    .car-img {
+        position: relative;
+        animation: car-entrance .75s cubic-bezier(.66,.23,.85,1.28);
+    }
+    @keyframes car-entrance {
+        0% {
+            left: -70vw;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    @keyframes rotate-wheel {
+        from { transform: translate(-50%, -50%) rotate(0); }
+        to { transform: translate(-50%, -50%) rotate(360deg); }
     }
 
 
