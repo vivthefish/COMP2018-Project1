@@ -304,12 +304,24 @@ nav ul a.active img {
   font-size: 1.2rem;
 }
 
+#intro-section .zigzag {
+  background: url("../img/zigzag.svg");
+  background-size: cover;
+  overflow: hidden;
+  position: absolute;
+  width: 120px;
+  height: 15px;
+  -webkit-animation: zigzag 4s linear infinite;
+          animation: zigzag 4s linear infinite;
+}
+
 #intro-section i {
   color: #443742;
   margin-right: 10px;
 }
 
 #intro-section article {
+  position: relative;
   height: auto;
 }
 
@@ -339,7 +351,7 @@ nav ul a.active img {
 
 /*-----Index Carousel-----*/
 #carousel-section {
-  height: 100vh;
+  height: 80vh;
   background-color: #153b50;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -378,7 +390,7 @@ nav ul a.active img {
 
 #carousel-section .carousel-caption {
   width: 100%;
-  height: 40%;
+  height: 30%;
   padding: 20px 50px;
   left: 0;
   right: 0;
@@ -391,9 +403,9 @@ nav ul a.active img {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
 }
@@ -551,14 +563,9 @@ footer i {
           filter: blur(20px);
 }
 
-.car-img span:hover::after {
-  width: 450px;
-  height: 450px;
-}
-
 .car-img span:hover::before {
-  height: 550px;
-  width: 550px;
+  height: 450px;
+  width: 450px;
 }
 
 .car-img img {

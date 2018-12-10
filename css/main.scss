@@ -282,11 +282,21 @@ textarea {
         padding-top: 100px;
         padding-bottom: 50px;
         font-size: 1.2rem;
+        .zigzag {
+            background: url('../img/zigzag.svg');
+            background-size: cover;
+            overflow: hidden;
+            position: absolute;
+            width: 120px;
+            height: 15px;
+            animation: zigzag 4s linear infinite;
+        }
         i {
             color: $dkBurgundy;
             margin-right: 10px;
         }
         article {
+            position: relative;
             height: auto;
         }
         aside {
@@ -310,7 +320,7 @@ textarea {
 
     /*-----Index Carousel-----*/
     #carousel-section {
-        height: 100vh;
+        height: 80vh;
         background-color: $dkBlue;
         display: flex;
         align-items: center;
@@ -340,7 +350,7 @@ textarea {
         }
         .carousel-caption {
             width: 100%;
-            height: 40%;
+            height: 30%;
             padding: 20px 50px;
             left: 0;
             right: 0;
@@ -348,7 +358,7 @@ textarea {
             top: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-end;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0));
             h2 {
                 color: $teal;
@@ -460,21 +470,6 @@ textarea {
         position: relative;
         animation: car-entrance .75s cubic-bezier(.66,.23,.85,1.28);
         span {
-            // &::after {
-            //     content: '';
-            //     display: block;
-            //     position: absolute;
-            //     top: 40%;
-            //     left: 45%;
-            //     transform: translate(-50%, -50%);
-            //     border-radius: 50%;
-            //     opacity: .25;
-            //     background: url('../img/wheel.svg');
-            //     width: 0;
-            //     height: 0;
-            //     transition-duration: .5s;
-            //     animation: rotate-wheel 60s linear infinite;
-            // }
             &::before {
                 content: '';
                 display: block;
@@ -489,13 +484,9 @@ textarea {
                 transition-duration: .5s;
                 filter: blur(20px);
             }
-            &:hover::after {
-                width: 450px;
-                height: 450px;
-            }
             &:hover::before {
-                height: 550px;
-                width: 550px;
+                height: 450px;
+                width: 450px;
             }
         }
         img {
