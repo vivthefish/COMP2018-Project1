@@ -25,6 +25,7 @@ $( document ).ready(function() {
         $(this).toggleClass('active');
     })
 
+    // Put a slight delay in page loading so that you can see the nav animation
     $(function(){
         $("a").click(function(e){
             e.preventDefault();
